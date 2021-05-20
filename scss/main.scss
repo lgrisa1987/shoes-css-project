@@ -71,7 +71,7 @@ section {
   display: inline-block;
   text-decoration: none;
   padding: .8rem 2rem;
-  background: blue;
+  background: var(--clr-accent);
   color: white;
 
   font: {
@@ -196,7 +196,42 @@ section {
 }
 
 .product {
-  background: red;
-  padding: 4.8rem 0;
-  border-radius: 4.8rem;
+  background: radial-gradient(var(--clr-inner), var(--clr-outer));
+  padding: 4.8rem;
+  border-radius: 1.6rem;
+  margin-bottom: 6rem;
+  text-align: center;
+
+  &__title {
+    font-size: 4.5rem;
+    color: #fff;
+    text-shadow: 0 0 .3rem rgba(#000, .2);
+    line-height: 1.1;
+  }
+
+  &__image {
+    margin-top: -8rem;
+  }
+}
+
+.hero {
+  --clr-accent: #faa700;
+}
+
+.shoe-red {
+  --clr-inner: #faa700;
+  --clr-outer: #e48d00;
+  --clr-accent: #a1173c;
+}
+
+.shoe-white {
+  --clr-inner: #fce4b3;
+  --clr-outer: #eac886;
+  --clr-accent: #2f4858;
+}
+
+.shoe-blue {
+  --clr-inner: #6dd5ed;
+  --clr-outer: #2193b0;
+  --clr-accent: #008951;
 }

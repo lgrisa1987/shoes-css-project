@@ -33,6 +33,14 @@ p {
   margin: 0;
 }
 
+@mixin ie11 {
+
+  @media all and (-ms-high-contrast: none),
+  (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
 section {
   padding: 11.2rem 0;
 }
@@ -72,6 +80,11 @@ section {
   text-decoration: none;
   padding: .8rem 2rem;
   background: var(--clr-accent);
+
+  @include ie11 {
+    background: #faa700;
+  }
+
   color: white;
 
   font: {
@@ -222,16 +235,46 @@ section {
   --clr-inner: #faa700;
   --clr-outer: #e48d00;
   --clr-accent: #a1173c;
+
+  @include ie11 {
+    background: radial-gradient(#faa700, #e48d00);
+  }
+
+  .btn {
+    @include ie11 {
+      background: #a1173c;
+    }
+  }
 }
 
 .shoe-white {
   --clr-inner: #fce4b3;
   --clr-outer: #eac886;
   --clr-accent: #2f4858;
+
+  @include ie11 {
+    background: radial-gradient(#fce4b3, #eac886);
+  }
+
+  .btn {
+    @include ie11 {
+      background: #2f4858;
+    }
+  }
 }
 
 .shoe-blue {
   --clr-inner: #6dd5ed;
   --clr-outer: #2193b0;
   --clr-accent: #008951;
+
+  @include ie11 {
+    background: radial-gradient(#6dd5ed, #2193b0);
+  }
+
+  .btn {
+    @include ie11 {
+      background: #008951;
+    }
+  }
 }

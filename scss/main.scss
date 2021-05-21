@@ -18,6 +18,9 @@ body {
       sans-serif;
   }
 
+  opacity: 0;
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
   line-height: 1.6;
 }
 
@@ -37,6 +40,12 @@ p {
 
   @media all and (-ms-high-contrast: none),
   (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin breakpoint($screen) {
+  @media(min-width:$screen) {
     @content;
   }
 }
@@ -214,16 +223,53 @@ section {
   border-radius: 1.6rem;
   margin-bottom: 6rem;
   text-align: center;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(black, .18);
+  box-shadow: 0 0.5rem 1rem rgba(black, .18);
 
   &__title {
-    font-size: 4.5rem;
+    font-size: 4rem;
+    font-size: clamp(4rem, calc(5vw + 1.6rem), 5.4rem);
     color: #fff;
     text-shadow: 0 0 .3rem rgba(#000, .2);
-    line-height: 1.1;
+    line-height: 1;
+    text-transform: uppercase;
   }
 
   &__image {
     margin-top: -8rem;
+
+  }
+
+  &__description {
+    max-width: 70rem;
+  }
+
+  &.shoe-left .product__description {
+    max-width: 85rem;
+  }
+
+  @include breakpoint(45em) {
+    text-align: left;
+    margin-bottom: 14.4rem;
+
+    &__title {
+      margin: 0;
+    }
+
+    &__image {
+      float: right;
+      width: 45%;
+      shape-outside: url("../img/shoe-1.png");
+      margin: 0 -8rem 0 0;
+    }
+
+    &.shoe-left .product__image {
+      float: left;
+      shape-outside: url("../img/shoe-2.png");
+      margin: 0 0 0 -8rem;
+      shape-margin: 3.2rem;
+    }
+
   }
 }
 
